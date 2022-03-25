@@ -149,6 +149,7 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
 
  */
+///
 
  function onListening() {
 
@@ -160,6 +161,6 @@ function onError(error) {
 
   debug(`Listening on ${bind}`);
 
-  console.log(`escuchando en ${port}`)
+  console.log(`Servidor escuchando ...en ${app.get("port")}`);
 
 }
