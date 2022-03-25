@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./server/bin/www.js",  
      "dev": "babel-watch ./server/bin/www.js",
-     "clean": "rimraf dist",
+     "clean": "rm -rf dist",
+     "clean:cp": "rimraf dist",
      "build:s": "npm run clean && babel ./server --out-dir dist --copy-files"
   },
   "dependencies": {
