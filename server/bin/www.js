@@ -2,7 +2,7 @@
 
 //importando de forma moderna en js
 
-import app from '../app';
+import app from '@s/app';
 
 //importa la funcion debug y luego con la funcion crea la
 

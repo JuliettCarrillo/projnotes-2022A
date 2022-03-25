@@ -17,7 +17,7 @@ import indexRouter from"./routes/index";
 
 import usersRouter from "./routes/users";
 
-import aboutRouter from "./server/routes/about";
+import aboutRouter from "./routes/about";
 
 //se crea instancia de express
 
