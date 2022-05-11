@@ -2,8 +2,7 @@ const async = require("hbs/lib/async");
 
 console.log("😎Webpack Working👻!!!!");
  //Default parameters
-
- //arouwn funtions
+ //arown funtions
  let show =(m="❌")=>{
     console.log(m);
  };

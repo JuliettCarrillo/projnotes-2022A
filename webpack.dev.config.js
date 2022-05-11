@@ -14,7 +14,7 @@ module.exports = {
     //Para poder ser multiplataforma es necesario concatenar las rutas con path
     filename: path.join('javascript','bundle.js'),
     //Path Publico
-    publicPath:'/',
+    publicPath:'/';
 
   },
   //3. Modulos
@@ -43,26 +43,7 @@ module.exports = {
             }
           }
         ]
-      },
-      //3.2 Reglas para Css
-      {
-        test:/\.css$/,
-        use:[constMiniCssEstractPlugin.loader]
       }
-    ]
-  },
-  // 4. Plugins
-  plugins:[new constMiniCssEstractPlugin({
-    filename:path.join('stylesheets','style.css')
-  })]
-  // // 3. Configurando el servidor de desarrollo
-  // devServer: {
-  //   // 3.1 Folder de archivos estaticos
-  //   static: path.join(__dirname, 'public'),
-  //   // 3.2 Puerto del servidor de desarrollo
-  //   // de WP (Webpack)
-  //   port: 8080,
-  //   // 3.3 Definiendo host
-  //   host: 'localhost'
-  //}
+     ]
+  }
 };
