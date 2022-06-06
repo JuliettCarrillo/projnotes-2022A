@@ -22,7 +22,7 @@ let show = (m = "😝") => {
   }
   
   async function asyncCall() {
-    console.log("Calling async function!!!");
+    console.log('Calling async function!!!');
     const result = await resolveAfter2Seconds();
     console.log(result); // Imprime "function resolve" en la consola
   }
