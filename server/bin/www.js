@@ -10,6 +10,9 @@ import app from '@s/app';
 
 //var debug = require('debug')('p01-projnotes:server');
 
+// var app = require('../app');
+import app from '@s/app';
+
 //importando Debug
 
 import Debug from 'debug';
@@ -20,7 +23,7 @@ import http from 'http';
 
 //creando o ejecuntando con la instancia Db y el argumento
 
-const debug = Debug("p01-projnotes:server");
+const debug = Debug("projnotes:server");
 
 
 
@@ -105,12 +108,7 @@ function onError(error) {
 
 
 
-  var bind = typeof port === 'string'
-
-    ? 'Pipe ' + port
-
-    : 'Port ' + port;
-
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
 
   // handle specific listen errors with friendly messages
@@ -157,10 +155,12 @@ function onError(error) {
 
   //const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port; operador ternario
 
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port  ${addr.port}`;
+  const bind = typeof addr === 'string' ?
+   `pipe ${addr}` : 
+  `port  ${addr.port}`;
 
   debug(`Listening on ${bind}`);
 
-  console.log(`Servidor escuchando ...en ${app.get("port")}`);
+  console.log(`Servidor escuchando ...en ${app.get('port')}`);
 
 }
