@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 // Incorporando estilos
 // a mi bundle
-import './styles/style.css'
-import './styles/mystyle.css'
+import './styles/style.css';
+import './styles/mystyle.css';
 
-console.log("🎁 Front-End Working!!!");
+console.log('🎁 Front-End Working!!!');
 
 // Default parameters ES6/2015
 let show = (m = "😝") => {
