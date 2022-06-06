@@ -22,6 +22,8 @@ import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 
 // Importando nuestro logger
+import { error } from 'console';
+
 import winston from './config/winston';
 
 import indexRouter from './routes/index';
@@ -171,6 +173,10 @@ app.use("/about", aboutRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
+  // Registrando el error 404
+  winston.error(
+    `404 - Not Found: ${req.method} ${req.originalUrl} : IP ${req.ip}`
+  );
   next(createError(404));
 });
 
@@ -179,6 +185,13 @@ app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // Registamos el error en winston
+  winston.error(
+    `${error.status || 500} : ${err.message} : ${req.method} ${
+      req.originalUrl
+    } : IP ${req.ip}}`
+  );
 
   // render the error page
   res.status(err.status || 500);
