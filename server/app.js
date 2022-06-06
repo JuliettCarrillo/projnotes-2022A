@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+
+
 // Preámbulo
 // Ayuda a manejar errores http
 import createError from "http-errors";
@@ -11,7 +14,12 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 
 // Las rutas
-import indexRouter from "./routes/index";
+// var indexRouter = require('./routes/index');
+import webpack from 'webpack';
+import WebpackDevMiddleware from 'webpack-dev-middleware';
+import WebpackHotMiddleware from 'webpack-hot-middleware';
+
+import indexRouter from './routes/index';
 
 import usersRouter from "./routes/users";
 
@@ -24,15 +32,15 @@ import aboutRouter from "./routes/about";
 
 // Nucleo de webpack
 
-import webpack from 'webpack';
+// import webpack from 'webpack';
 
-// Permite incrustar webpack en express
+// // Permite incrustar webpack en express
 
-import WebpackDevMiddleware from 'webpack-dev-middleware';
+// import WebpackDevMiddleware from 'webpack-dev-middleware';
 
-// Permite la actualización dinamica de la página
+// // Permite la actualización dinamica de la página
 
-import WebpackHotMiddleware from "webpack-hot-middleware";
+// import WebpackHotMiddleware from "webpack-hot-middleware";
 
 // Configuración
 
@@ -107,11 +115,13 @@ if (nodeEnv === 'development') {
 
   // Habilitando el Middleware de webpack en express
 
-  app.use(WebpackDevMiddleware(bundler, {
+  app.use(
+    WebpackDevMiddleware(bundler, {
 
-    publicPath: webpackConfig.output.publicPath
+    publicPath: webpackConfig.output.publicPath,
 
-  }));
+  })
+  );
 
 
 
@@ -145,6 +155,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 // Middleware de archivos estaticos
 app.use(express.static(path.join(__dirname,"..", "public")));
 
@@ -169,6 +180,6 @@ app.use((err, req, res, next) => {
   res.render("error");
 });
 
-// Exportando instancia de app
+// Exportando instancia de app // module.exports = app;
 // usando js moderno
 export default app;
